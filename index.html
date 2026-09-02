@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GUGGUUU 🎀</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#070707;
+    color:white;
+    font-family:Arial,sans-serif;
+    overflow-x:hidden;
+}
+
+section{
+    min-height:100vh;
+    padding:70px 20px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+.hero{
+    text-align:center;
+    background:radial-gradient(circle,#450018,#070707 65%);
+}
+
+.hero h1{
+    font-size:70px;
+    letter-spacing:5px;
+    animation:pulse 2s infinite;
+}
+
+.hero p{
+    margin-top:25px;
+    font-size:18px;
+    color:#ddd;
+}
+
+.glow{
+    color:#ff1744;
+    text-shadow:
+        0 0 10px #ff1744,
+        0 0 30px #ff1744,
+        0 0 60px #ff1744;
+}
+
+@keyframes pulse{
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.04);
+    }
+}
+
+h2{
+    font-size:35px;
+    margin-bottom:40px;
+    text-align:center;
+}
+
+.story{
+    width:100%;
+    max-width:800px;
+}
+
+.month{
+    padding:25px;
+    margin:20px 0;
+    border-radius:22px;
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.12);
+    box-shadow:0 0 25px rgba(255,0,70,0.08);
+}
+
+.month h3{
+    color:#ff416c;
+    font-size:24px;
+    margin-bottom:12px;
+}
+
+.month p{
+    color:#ddd;
+    line-height:1.7;
+}
+
+.photo-grid{
+    width:100%;
+    max-width:900px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.photo-grid img{
+    width:100%;
+    height:380px;
+    object-fit:cover;
+    border-radius:22px;
+    box-shadow:0 0 30px rgba(255,0,70,0.2);
+    transition:0.4s;
+}
+
+.photo-grid img:hover{
+    transform:scale(1.02);
+}
+
+.video-box{
+    width:100%;
+    max-width:850px;
+}
+
+.video-box video{
+    width:100%;
+    max-height:650px;
+    border-radius:22px;
+    box-shadow:0 0 35px rgba(255,0,70,0.25);
+}
+
+.letter{
+    max-width:750px;
+    padding:35px;
+    border-radius:25px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.1);
+    text-align:center;
+    line-height:1.9;
+    font-size:18px;
+    color:#eee;
+}
+
+.question{
+    background:radial-gradient(circle,#400012,#070707 65%);
+    text-align:center;
+}
+
+.question h1{
+    font-size:48px;
+    line-height:1.3;
+    margin-bottom:35px;
+}
+
+.answer{
+    border:none;
+    border-radius:50px;
+    padding:17px 35px;
+    margin:10px;
+    background:#ff1744;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    box-shadow:0 0 25px rgba(255,23,68,0.5);
+    transition:0.3s;
+}
+
+.answer:hover{
+    transform:scale(1.08);
+}
+
+#final{
+    display:none;
+    margin-top:35px;
+    max-width:700px;
+    text-align:center;
+    animation:appear 1s ease;
+}
+
+#final h2{
+    color:#ff416c;
+    margin-bottom:15px;
+}
+
+#final p{
+    color:#ddd;
+    font-size:19px;
+    line-height:1.8;
+}
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.music-btn{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:58px;
+    height:58px;
+    border:none;
+    border-radius:50%;
+    background:#ff1744;
+    color:white;
+    font-size:23px;
+    cursor:pointer;
+    z-index:999;
+    box-shadow:0 0 25px rgba(255,23,68,0.6);
+}
+
+.heart{
+    position:fixed;
+    bottom:-30px;
+    font-size:25px;
+    pointer-events:none;
+    z-index:1000;
+    animation:floatUp 4s linear forwards;
+}
+
+@keyframes floatUp{
+    from{
+        transform:translateY(0) scale(1);
+        opacity:1;
+    }
+
+    to{
+        transform:translateY(-110vh) scale(1.5);
+        opacity:0;
+    }
+}
+
+@media(max-width:600px){
+
+    .hero h1{
+        font-size:50px;
+    }
+
+    h2{
+        font-size:29px;
+    }
+
+    .photo-grid{
+        grid-template-columns:1fr;
+    }
+
+    .photo-grid img{
+        height:430px;
+    }
+
+    .question h1{
+        font-size:35px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+
+<!-- MUSIC -->
+
+<audio id="music" loop>
+
+    <source
+        src="Meri Banogi Kya Ringtone Download Mp3.m4r"
+        type="audio/mp4">
+
+</audio>
+
+<button class="music-btn" onclick="toggleMusic()">🎵</button>
+
+
+<!-- OPENING -->
+
+<section class="hero">
+
+    <h1>
+        <span class="glow">GUGGUUU 🎀</span>
+    </h1>
+
+    <p>
+        Five months of memories, smiles, fights, love and us. ❤️
+    </p>
+
+</section>
+
+
+<!-- OUR STORY -->
+
+<section>
+
+    <h2>OUR STORY ❤️</h2>
+
+    <div class="story">
+
+
+        <div class="month">
+
+            <h3>MONTH 01 🥹</h3>
+
+            <p>
+                The beginning of something I never knew would become
+                this special. One month, countless conversations,
+                and the beginning of our little world.
+            </p>
+
+        </div>
+
+
+        <div class="month">
+
+            <h3>MONTH 02 💗</h3>
+
+            <p>
+                Slowly becoming closer, understanding each other,
+                talking for hours and making memories that still
+                make me smile.
+            </p>
+
+        </div>
+
+
+        <div class="month">
+
+            <h3>MONTH 03 🌙</h3>
+
+            <p>
+                Three months already. More conversations,
+                more memories and somehow you became such an
+                important part of my everyday life.
+            </p>
+
+        </div>
+
+
+        <div class="month">
+
+            <h3>MONTH 04 🎀</h3>
+
+            <p>
+                Four months of us. Through every little moment,
+                every conversation and every emotion —
+                still choosing our little world.
+            </p>
+
+        </div>
+
+
+        <div class="month">
+
+            <h3>MONTH 05 ❤️</h3>
+
+            <p>
+                And here we are... five months.
+                Another chapter of our story,
+                another collection of memories,
+                and hopefully many more to come.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- PHOTOS -->
+
+<section>
+
+    <h2>OUR LITTLE MEMORIES 📸❤️</h2>
+
+    <div class="photo-grid">
+
+
+        <img
+            src="photo1.jpg"
+            alt="Our memory 1">
+
+
+        <img
+            src="photo2.jpg"
+            alt="Our memory 2">
+
+
+        <img
+            src="photo3.jpg"
+            alt="Our memory 3">
+
+
+        <img
+            src="photo4.jpg"
+            alt="Our memory 4">
+
+
+    </div>
+
+</section>
+
+
+<!-- VIDEO -->
+
+<section>
+
+    <h2>ONE MORE MEMORY 🎥❤️</h2>
+
+    <div class="video-box">
+
+        <video
+            controls
+            playsinline
+            preload="metadata">
+
+            <source
+                src="copy_26F4333C-6EC7-4ED7-87D1-307B90E15611.MOV"
+                type="video/quicktime">
+
+            Your browser does not support this video.
+
+        </video>
+
+    </div>
+
+</section>
+
+
+<!-- LETTER -->
+
+<section>
+
+    <h2>A LITTLE LETTER FOR YOU 💌</h2>
+
+    <div class="letter">
+
+        Five months might sound like a small amount of time,
+        but look at how many memories we've already created.
+
+        <br><br>
+
+        Thank you for every conversation,
+        every smile, every little moment,
+        and everything that makes our story ours.
+
+        <br><br>
+
+        We've had beautiful moments,
+        difficult moments,
+        random conversations and countless memories.
+
+        <br><br>
+
+        And somehow, after all of it,
+        here we are celebrating five months. ❤️
+
+        <br><br>
+
+        I hope this is only the beginning
+        of many more chapters of our story.
+
+        <br><br>
+
+        <b>Happy 5 Months, GUGGUUU. 🎀❤️</b>
+
+    </div>
+
+</section>
+
+
+<!-- FINAL QUESTION -->
+
+<section class="question">
+
+    <h1>
+        MERI WIFEY<br>
+        BANOGI? 🎀
+    </h1>
+
+
+    <div>
+
+        <button
+            class="answer"
+            onclick="yesAnswer()">
+
+            YES ❤️
+
+        </button>
+
+
+        <button
+            class="answer"
+            onclick="yesAnswer()">
+
+            HAAN 🥹
+
+        </button>
+
+    </div>
+
+
+    <div id="final">
+
+        <h2>I KNEW IT 😭❤️</h2>
+
+        <p>
+            Five months down...
+            and a whole lifetime of memories
+            still waiting for us.
+        </p>
+
+        <br>
+
+        <p>
+            <b>
+                Happy 5 Months, GUGGUUU. 🎀❤️
+            </b>
+        </p>
+
+    </div>
+
+</section>
+
+
+<script>
+
+const music = document.getElementById("music");
+
+
+function toggleMusic(){
+
+    if(music.paused){
+
+        music.play().catch(() => {});
+
+    }else{
+
+        music.pause();
+
+    }
+
+}
+
+
+function yesAnswer(){
+
+    document.getElementById("final").style.display = "block";
+
+    music.play().catch(() => {});
+
+
+    for(let i = 0; i < 40; i++){
+
+        setTimeout(() => {
+
+            const heart =
+                document.createElement("div");
+
+            heart.className = "heart";
+
+            heart.innerHTML = "❤️";
+
+            heart.style.left =
+                Math.random() * 100 + "vw";
+
+            heart.style.animationDuration =
+                (2 + Math.random() * 3) + "s";
+
+            document.body.appendChild(heart);
+
+
+            setTimeout(() => {
+
+                heart.remove();
+
+            },5000);
+
+        }, i * 80);
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
