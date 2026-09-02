@@ -588,6 +588,7 @@ function yesAnswer(){
 }
 
 </script>
+
 <!-- FINAL LITTLE SURPRISE -->
 
 <section class="last-surprise">
@@ -629,10 +630,11 @@ function yesAnswer(){
     min-height:70vh;
     padding:90px 25px;
     text-align:center;
-    background:
-        radial-gradient(circle at center,
+    background:radial-gradient(
+        circle at center,
         rgba(255,0,70,0.16),
-        #070707 60%);
+        #070707 60%
+    );
 }
 
 .last-surprise h2{
@@ -672,8 +674,13 @@ function yesAnswer(){
 }
 
 @keyframes littleBeat{
-    0%,100%{transform:scale(1);}
-    50%{transform:scale(1.15);}
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.15);
+    }
 }
 
 .forever{
